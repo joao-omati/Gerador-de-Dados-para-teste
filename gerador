@@ -1,0 +1,50 @@
+import random
+
+while True:
+
+    print("Bem vindo ao gerador de testes,quando quiser parar digite pare ")
+    print("--------------------------------------------------------------------------")
+
+    input1 = input("""escolha uma ou mais opções para serem geradas aleatorioamente:
+        [1] - nome
+        [2] - e-mail
+        [3] - telefone
+        [4] - cidade
+        [5] - estado
+        você pode escolher mais de uma opção : """)
+
+    if 'stop' in input1:
+        break  
+
+    print("--------------------------------------------------------------------------")
+
+    input2 = input('você quer salvar em txt?(s/n)')
+
+
+    def process_data(data_string):
+        output =''
+
+        if '1' in data_string:
+            nome = random.choice(list.nomes)
+            output = output + nome + '\n' 
+        if '2' in data_string:
+            email = random.choice(list.e-mail)
+            output = output + email + '\n' 
+        if '3' in data_string:
+            telefone = random.choice(list.telefone)
+            output = output + telefone + '\n' 
+        if '4' in data_string:
+            cidade = random.choice(list.cidades)
+            output = output + cidade + '\n' 
+        if '5' in data_string:
+            estado = random.choice(list.estados)
+            output = output + estado + '\n'
+
+        return output 
+
+    data_processed = process_data(input1)
+    print(data_processed)
+
+    if input2 == 's':
+        with open('data.txt','a') as file:
+            file.write(data_processed)
